@@ -1,13 +1,24 @@
 package gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.view;
 
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.dao.IVehicleDao;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.dao.VehicleDao;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.entity.ProductEntity;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.entity.ServiceOrderEntity;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.entity.SparePartEntity;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.entity.VehicleEntity;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.AutoDeliveryService;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.BrakeRepairService;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.CarCleaningService;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.CustomsService;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.EngineRepairService;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.IAutoDeliveryService;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.IBrakeRepairService;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.ICarCleaningService;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.ICustomsService;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.IEngineRepairService;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.IPaintingService;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.IVehicleReceiptService;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.PaintingService;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.VehicleReceipt;
 
 public class MainForm extends javax.swing.JFrame {
@@ -120,7 +131,25 @@ public class MainForm extends javax.swing.JFrame {
         ////////////////////////////////////////////////////////////////////////////////////////////
         ICustomsService customService = new CustomsService();
         ProductEntity alarm = customService.installAlarm(order.getVehicle().getBrand());
-       
+        System.out.println("///////////////////////////////////////////////////////////////////////////////////////////");
+        ProductEntity pola = customService.polarizedWindow(order.getVehicle().getColor());
+        
+        System.out.println("///////////////////////////////////////////////////////////////////////////////////////////");
+        IEngineRepairService engineRepairService = new EngineRepairService();
+        engineRepairService.changeOil(order);
+        
+        System.out.println("///////////////////////////////////////////////////////////////////////////////////////////");
+        IPaintingService paintingService = new PaintingService();
+        SparePartEntity dcolor = new SparePartEntity();
+        SparePartEntity paint = paintingService.setPaint(dcolor.getColors());
+        
+        System.out.println("///////////////////////////////////////////////////////////////////////////////////");
+        ICarCleaningService cleaningservice = new CarCleaningService();
+        ProductEntity clean = cleaningservice.cleanAndPolished(order.getVehicle().getLicenseNumber());
+        System.out.println("/////////////////////////////////////////////////////////////////////////////////");
+        
+        IAutoDeliveryService autodeliveryservice = new AutoDeliveryService();
+        SparePartEntity sold = autodeliveryservice.buyRudder(order.getVehicle().getBrand());
         
     }//GEN-LAST:event_executeCombo1
 
