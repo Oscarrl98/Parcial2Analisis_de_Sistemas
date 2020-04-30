@@ -1,9 +1,12 @@
 package gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.view;
 
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.entity.ProductEntity;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.entity.ServiceOrderEntity;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.entity.VehicleEntity;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.BrakeRepairService;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.CustomsService;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.IBrakeRepairService;
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.ICustomsService;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.IVehicleReceiptService;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.service.VehicleReceipt;
 
@@ -107,7 +110,18 @@ public class MainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void executeCombo1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeCombo1
-        System.out.println("Combo #1");
+        System.out.println("Combo PREMIUM!!");
+        System.out.println("Servicios:\n 1)Instalacion de Alarma\n2)Polarizado de vidrio\n3)Cambio de aceite de motor\n4)Enderezado y pintura\n5)Pulido y lustrado\n6)Juego libre de volante");
+        
+        IVehicleReceiptService receiptBay = new VehicleReceipt();
+        ServiceOrderEntity order = receiptBay.receiveVehicle(this.txtLicenseNumber.getText());
+        System.out.println("Se trabajará el vehículo con placas " + order.getVehicle().getLicenseNumber() + " marca " + order.getVehicle().getBrand() + " color " + order.getVehicle().getColor() + " modelo " + order.getVehicle().getModel());
+        System.out.println("-----------------------------------------------------------");
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        ICustomsService customService = new CustomsService();
+        ProductEntity alarm = customService.installAlarm(order.getVehicle().getBrand());
+       
+        
     }//GEN-LAST:event_executeCombo1
 
     private void executeCombo2(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeCombo2
@@ -119,15 +133,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_executeCombo3
 
     private void executeComboExample(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeComboExample
-        System.out.println("Combo Ejemplo");
         
-        System.out.println("Se realizará un cambio de aceite y rotación de llantas. Por último, un lavado exterior.");
-        
-        IVehicleReceiptService receiptBay = new VehicleReceipt();
-        
-        ServiceOrderEntity order = receiptBay.receiveVehicle(this.txtLicenseNumber.getText());
-        
-        System.out.println("Se trabajará el vehículo con placas " + order.getVehicle().getLicenseNumber() + " marca " + order.getVehicle().getBrand() + " color " + order.getVehicle().getColor() + " modelo " + order.getVehicle().getModel());
     }//GEN-LAST:event_executeComboExample
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

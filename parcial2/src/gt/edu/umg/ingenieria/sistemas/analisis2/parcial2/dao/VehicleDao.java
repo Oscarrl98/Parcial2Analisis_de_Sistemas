@@ -15,13 +15,13 @@ public class VehicleDao implements IVehicleDao {
         System.out.println("Se ha encontrado el vehiculo " + licenseNumber);
         
         VehicleOwnerEntity owner = new VehicleOwnerEntity();
-        owner.setFullName("Josue Barillas");
-        owner.setDpi("27741584648456842");
-        
+        owner.setFullName("Oscar Raul");
+        owner.setDpi("4557898789878");
+        System.out.println("A nombre de " + owner.getFullName());
         Set<VehicleServiceHistoryEntryEntity> serviceHistory = new HashSet<>();
                 
         VehicleEntity veh = new VehicleEntity();
-        veh.setBrand("Toyota");
+        veh.setBrand("Nisan");
         veh.setModel(2011);
         veh.setColor("Black");
         veh.setLicenseNumber(licenseNumber);

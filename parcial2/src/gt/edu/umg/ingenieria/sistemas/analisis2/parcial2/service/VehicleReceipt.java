@@ -15,7 +15,7 @@ public class VehicleReceipt implements IVehicleReceiptService {
 
     @Override
     public ServiceOrderEntity receiveVehicle(String licenseNumber) {
-        System.out.println("Creando nueva orden de trabajo en la bahia de recepcion.");
+        System.out.println("Creando nueva orden de trabajo.");
         
         IVehicleDao dao = new VehicleDao();
         
@@ -24,7 +24,7 @@ public class VehicleReceipt implements IVehicleReceiptService {
         
         ServiceOrderEntity order = new ServiceOrderEntity();
         order.setDate(new Date());
-        order.setNit("4564879-5");
+        order.setNit("3500895-4");
         order.setVehicle(veh);
         
         System.out.println("Se ha creado nueva orden para el vehiculo con placas " + licenseNumber);
@@ -37,7 +37,7 @@ public class VehicleReceipt implements IVehicleReceiptService {
     }
     
     private String translateColor(String englishColor) {
-        System.out.println("Traduciendo color " + englishColor);
+        
         switch (englishColor.toUpperCase()) {
             case "BLUE" : return "AZUL";
             case "BLACK" : return "NEGRO";
