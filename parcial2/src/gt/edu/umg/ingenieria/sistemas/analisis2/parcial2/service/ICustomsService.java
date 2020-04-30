@@ -7,4 +7,5 @@ import java.util.*;
 public interface ICustomsService {
     
 public ProductEntity installAlarm(String brand);
+public ProductEntity polarizedWindow(String color);
 }
