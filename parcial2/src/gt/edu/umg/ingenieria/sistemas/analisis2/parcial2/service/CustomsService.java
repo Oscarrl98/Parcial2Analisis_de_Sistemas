@@ -20,9 +20,9 @@ public class CustomsService implements ICustomsService {
     public ProductEntity installAlarm(String brand) {
         System.out.println("Instalar alarma para carro marca "+ brand); 
         IInventoryDao acces= new InventoryDao();
-        IEmployeeDao asi= new EmployeeDao();
         ProductEntity stocke = acces.getStock(brand);
         System.out.println("Se ha encontrado alarmas para vehiculos" + stocke.getName()+" con disponibilidad de " + stocke.getStock()+" existencias" );
+        IEmployeeDao asi= new EmployeeDao();
         AssistantEntity asi2 = asi.findAsistent("Disponible");
         System.out.println("y ejecutara la instalacion de su alarma");
         return stocke;
