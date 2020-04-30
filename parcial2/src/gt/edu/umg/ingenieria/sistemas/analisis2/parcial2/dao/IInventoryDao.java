@@ -5,5 +5,6 @@ import java.util.*;
 
 public interface IInventoryDao { 
     public ProductEntity getStock(String name);
+    public int getStockall(String name);
 
 }

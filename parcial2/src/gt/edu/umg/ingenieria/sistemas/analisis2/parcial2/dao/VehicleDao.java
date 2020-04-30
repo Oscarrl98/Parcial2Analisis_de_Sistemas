@@ -1,5 +1,6 @@
 package gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.dao;
 
+import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.entity.SparePartEntity;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.entity.VehicleEntity;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.entity.VehicleOwnerEntity;
 import gt.edu.umg.ingenieria.sistemas.analisis2.parcial2.entity.VehicleServiceHistoryEntryEntity;
@@ -32,4 +33,13 @@ public class VehicleDao implements IVehicleDao {
         return veh;        
     }
 
+    @Override
+    public SparePartEntity defineColor(String color) {
+         SparePartEntity dcolor = new SparePartEntity();
+         dcolor.setColors("AZUL");
+         dcolor.setNames("Cromatico");
+         
+         return dcolor;
+    }
+        
 }

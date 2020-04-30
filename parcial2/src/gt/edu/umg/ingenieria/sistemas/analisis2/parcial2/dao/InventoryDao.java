@@ -12,7 +12,7 @@ public class InventoryDao implements IInventoryDao {
    
     @Override
     public ProductEntity getStock(String name) {
-          System.out.println("Verificando la disponibilidad de alarmas compatibles con marca " + name);
+          System.out.println("Verificando la disponibilidad en stock ...");
         ProductEntity product = new ProductEntity();
         product.setName(name);
         Random random = new Random();
@@ -20,5 +20,14 @@ public class InventoryDao implements IInventoryDao {
         product.setStock(r);
         return product;
     }
-
+    
+    @Override
+    public int getStockall(String name) {
+          System.out.println("Verificando la disponibilidad en stock ...");
+        ProductEntity product = new ProductEntity();
+        product.setName(name);
+        Random random = new Random();
+        int r= random.nextInt((10-1)+1)+1;
+        product.setStock(r);
+        return r;}
 }
