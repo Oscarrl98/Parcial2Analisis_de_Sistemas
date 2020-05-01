@@ -21,12 +21,11 @@ public class PaintingService implements IPaintingService {
     public SparePartEntity setPaint(String colors) {
         System.out.println("Se realizara un retoque de pintura color "+colors);
         IEmployeeDao mts= new EmployeeDao();
-        IInventoryDao accesi= new InventoryDao();
         AssistantEntity mts2 = mts.findAsistent("Disponible");
         System.out.println("Sera el encargado de pintar su vehiculo");
         MechanicEntity mts1 = mts.findMechanic("Dispuesto");
         System.out.println(" de enderezar la abolladura");
-       return null ;
+       return null;
     }
 
 }
