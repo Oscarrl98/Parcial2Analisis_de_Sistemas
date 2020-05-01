@@ -21,7 +21,7 @@ public class CustomsService implements ICustomsService {
         System.out.println("Instalar alarma para carro marca "+ brand); 
         IInventoryDao acces= new InventoryDao();
         ProductEntity stocke = acces.getStock(brand);
-        System.out.println("Se ha encontrado alarmas para vehiculos" + stocke.getName()+" con disponibilidad de " + stocke.getStock()+" existencias" );
+        System.out.println("Se ha encontrado alarmas para vehiculos " + stocke.getName()+" con disponibilidad de " + stocke.getStock()+" existencias" );
         IEmployeeDao asi= new EmployeeDao();
         AssistantEntity asi2 = asi.findAsistent("Disponible");
         System.out.println("y ejecutara la instalacion de su alarma");
@@ -30,11 +30,12 @@ public class CustomsService implements ICustomsService {
 
     @Override
     public ProductEntity polarizedWindow(String color) {
-        IEmployeeDao meca1=new EmployeeDao();
+        
         System.out.println("Polarizar vidrios al vehiculo color "+color);
         IInventoryDao acces = new InventoryDao();
         ProductEntity stockv=acces.getStock(color);
         System.out.println("Se han encontrado poliester "+stockv.getName()+ "con disponibilidad de " + stockv.getStock() );
+        IEmployeeDao meca1=new EmployeeDao();
         MechanicEntity meca2=meca1.findMechanic("Disponible");
                 System.out.println("y polarizara sus vidrios");
         return stockv;
