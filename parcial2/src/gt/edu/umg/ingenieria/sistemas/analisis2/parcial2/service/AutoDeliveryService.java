@@ -16,7 +16,6 @@ public class AutoDeliveryService implements IAutoDeliveryService {
         SparePartEntity pice = new SparePartEntity();
        System.out.println("Un cliente con vehiculo marca "+names+" Solicita volantes");
        IInventoryDao stockvol = new InventoryDao();
-       //stockvol.getStockall(names);
        System.out.println("Se han encontrado "+stockvol.getStockall(names)+"volantes en bodega ");
        System.out.println("El cliente ha verificado su compra");
       
