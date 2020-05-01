@@ -126,30 +126,30 @@ public class MainForm extends javax.swing.JFrame {
         
         IVehicleReceiptService receiptBay = new VehicleReceipt();
         ServiceOrderEntity order = receiptBay.receiveVehicle(this.txtLicenseNumber.getText());
-        System.out.println("Se trabajará el vehículo con placas " + order.getVehicle().getLicenseNumber() + " marca " + order.getVehicle().getBrand() + " color " + order.getVehicle().getColor() + " modelo " + order.getVehicle().getModel());
+        System.out.println("Se trabajara en el vehiculo con placas" + order.getVehicle().getLicenseNumber() + " marca " + order.getVehicle().getBrand() + " color " + order.getVehicle().getColor() + " modelo " + order.getVehicle().getModel());
         System.out.println("-----------------------------------------------------------");
         ////////////////////////////////////////////////////////////////////////////////////////////
         ICustomsService customService = new CustomsService();
-        ProductEntity alarm = customService.installAlarm(order.getVehicle().getBrand());
+   /*1*/ProductEntity alarm = customService.installAlarm(order.getVehicle().getBrand());
         System.out.println("///////////////////////////////////////////////////////////////////////////////////////////");
-        ProductEntity pola = customService.polarizedWindow(order.getVehicle().getColor());
+   /*2*/ProductEntity pola = customService.polarizedWindow(order.getVehicle().getColor());
         
         System.out.println("///////////////////////////////////////////////////////////////////////////////////////////");
-        IEngineRepairService engineRepairService = new EngineRepairService();
+   /*3*/IEngineRepairService engineRepairService = new EngineRepairService();
         engineRepairService.changeOil(order);
         
         System.out.println("///////////////////////////////////////////////////////////////////////////////////////////");
         IPaintingService paintingService = new PaintingService();
-        SparePartEntity dcolor = new SparePartEntity();
+   /*4*/SparePartEntity dcolor = new SparePartEntity();
         SparePartEntity paint = paintingService.setPaint(dcolor.getColors());
         
         System.out.println("///////////////////////////////////////////////////////////////////////////////////");
-        ICarCleaningService cleaningservice = new CarCleaningService();
+   /*5*/ICarCleaningService cleaningservice = new CarCleaningService();
         ProductEntity clean = cleaningservice.cleanAndPolished(order.getVehicle().getLicenseNumber());
         System.out.println("/////////////////////////////////////////////////////////////////////////////////");
         
         IAutoDeliveryService autodeliveryservice = new AutoDeliveryService();
-        SparePartEntity sold = autodeliveryservice.buyRudder(order.getVehicle().getBrand());
+   /*6*/SparePartEntity sold = autodeliveryservice.buyRudder(order.getVehicle().getBrand());
         
     }//GEN-LAST:event_executeCombo1
 
